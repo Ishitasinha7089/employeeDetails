@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 1 project</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script defer src="./main.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="./assets/groww-dark.png" alt="Groww logo">
+        <img class="icon" onclick="changeTheme(this)" src="./assets/sun.svg" alt="theme icon">
+    </div>
+    <div class="main-body">
+        <h1>Employee details form</h1>
+        <div class="form-wrapper">
+            <form onsubmit="submitForm()">
+                <div class="empInputs">
+                    <label for="">First name</label>
+                    <input type="text" autofocus required pattern="^[A-Za-z]+$" title="Please enter only alphabets">
+                </div>
+                <div class="empInputs">
+                    <label for="lastName">Last name</label>
+                    <input type="text" required pattern="^[A-Za-z]+$" title="Please enter only alphabets">
+                </div>
+
+                <div class="radioBtns">
+                    <label for="">Gender:</label>
+                    <input type="radio" name="gender" checked>
+                    <label for="">Male</label>
+                    <input type="radio" name="gender">
+                    <label for="">Female</label>
+                    <input type="radio" name="gender">
+                    <label for="">Others</label>
+                </div>
+                
+                <div class="radioBtns">
+                    <label for="">Marital status:</label>
+                    <input type="radio" name="maritalStatus" checked id="married">
+                    <label for="">Married</label>
+                    <input type="radio" name="maritalStatus" id="unmarried">
+                    <label for="">Unmarried</label>
+                </div>
+
+                <div class="empInputs">
+                    <label for="">Spouse name</label>
+                    <input type="text" required id="spouseName" pattern="^[A-Za-z]+$" title="Only for married employees. Please enter only alphabets.">
+                </div>
+
+                <div class="empInputs">
+                    <label for="">Other details</label>
+                    <textarea id="otherDetails" cols="30" rows="4"></textarea>
+                </div>
+                <div class="t-and-c">
+                    <input type="checkbox" id="t-and-c" required>
+                    <label for="t-and-c">I accept <a href="">Terms and conditions</a></label>
+                </div>
+                <div class="empButtons">
+                    <button type="reset">Reset</button>
+                    <button type="submit" id="submitBtn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
