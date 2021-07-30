@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="color-theme-in-transition">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,59 +12,101 @@
     <script defer src="./main.js"></script>
 </head>
 <body>
-    <div class="header">
-        <img class="logo" src="./assets/groww-dark.png" alt="Groww logo">
-        <img class="icon" onclick="changeTheme(this)" src="./assets/sun.svg" alt="theme icon">
+    <div class="empHeader1518 flexbox">
+        <img class="logo1518" src="./assets/groww-dark.png" alt="Groww logo">
+        <img class="icon1518" src="./assets/sun.svg" alt="theme icon">
     </div>
-    <div class="main-body">
+    <div class="empBody1518 flexbox">
         <h1>Employee details form</h1>
-        <div class="form-wrapper">
-            <form onsubmit="submitForm()">
-                <div class="empInputs">
-                    <label for="">First name</label>
-                    <input type="text" autofocus required pattern="^[A-Za-z]+$" title="Please enter only alphabets">
+        <div class="empFormWrapper1518 flexbox">
+                <div class="empInputs1518 flexbox">
+                    <input type="text" autofocus> 
+                    <label class="empLabelFocused1518">First name</label>
                 </div>
-                <div class="empInputs">
-                    <label for="lastName">Last name</label>
-                    <input type="text" required pattern="^[A-Za-z]+$" title="Please enter only alphabets">
+                <p class="empError1518"></p>
+                <div class="empInputs1518 flexbox">
+                    <input type="text">
+                    <label>Last name</label> 
                 </div>
+                <p class="empError1518"></p>
 
-                <div class="radioBtns">
-                    <label for="">Gender:</label>
-                    <input type="radio" name="gender" checked>
-                    <label for="">Male</label>
-                    <input type="radio" name="gender">
-                    <label for="">Female</label>
-                    <input type="radio" name="gender">
-                    <label for="">Others</label>
+
+                <div class="empRadioBtns1518 flexbox">
+                    <label>Gender:</label>
+
+                    <div class="empRadioWrapper1519 flexbox">
+                        <div class="empRadio1519 flexbox">
+                            <input type="radio" name="gender" checked>
+                            <span></span>
+                        </div>
+                        <label>Male</label>
+                    </div>
+                    
+                    <div class="empRadioWrapper1519 flexbox">
+                        <div class="empRadio1519 flexbox">
+                            <input type="radio" name="gender">
+                            <span></span>
+                        </div>
+                        <label>Female</label>
+                    </div>
+                    <div class="empRadioWrapper1519 flexbox">
+                        <div class="empRadio1519 flexbox">
+                            <input type="radio" name="gender">
+                            <span></span>
+                        </div>
+                        <label>Others</label>
+                    </div>
                 </div>
                 
-                <div class="radioBtns">
-                    <label for="">Marital status:</label>
-                    <input type="radio" name="maritalStatus" checked id="married">
-                    <label for="">Married</label>
-                    <input type="radio" name="maritalStatus" id="unmarried">
-                    <label for="">Unmarried</label>
+                <div class="empRadioBtns1518 flexbox">
+                    <label>Marital status:</label>
+                    <div class="empRadioWrapper1519 flexbox">
+                        <div class="empRadio1519 flexbox">
+                            <input type="radio" id="married" name="maritalStatus" checked>
+                            <span></span>
+                        </div>
+                        <label>Married</label>
+                    </div>
+                    <div class="empRadioWrapper1519 flexbox">
+                        <div class="empRadio1519 flexbox">
+                            <input type="radio" id="unmarried" name="maritalStatus">
+                            <span></span>
+                        </div>
+                        <label>Unmarried</label>
+                    </div>
                 </div>
 
-                <div class="empInputs">
-                    <label for="">Spouse name</label>
-                    <input type="text" required id="spouseName" pattern="^[A-Za-z]+$" title="Only for married employees. Please enter only alphabets.">
+                <div class="empInputs1518 flexbox">
+                    <input class="empSpouseName1518" type="text">
+                    <label>Spouse name</label>
                 </div>
-
-                <div class="empInputs">
-                    <label for="">Other details</label>
-                    <textarea id="otherDetails" cols="30" rows="4"></textarea>
+                <p class="empError1518"></p>
+                <div class="empTooltip1518 flexbox">
+                    <span>Only for married employees</span>
                 </div>
-                <div class="t-and-c">
-                    <input type="checkbox" id="t-and-c" required>
-                    <label for="t-and-c">I accept <a href="">Terms and conditions</a></label>
+                <div class="empInputs1518 flexbox">
+                    <textarea id="empOtherDetails1518" cols="30" rows="4"></textarea>
+                    <label>Other details</label>
                 </div>
-                <div class="empButtons">
-                    <button type="reset">Reset</button>
-                    <button type="submit" id="submitBtn">Submit</button>
+                <div class="empTandC1518 flexbox">
+                    <div class="empCheckbox1518">
+                        <input type="checkbox" id="empTandC1518">
+                        <span class="flexbox">&#10003;</span>
+                    </div>
+                    <label>I accept <a href="">Terms and conditions</a></label>
                 </div>
-            </form>
+                <p class="empError1518"></p>
+                <div class="empButtons1518 flexbox">
+                    <input id="empResetBtn1518" type="button" value="reset">
+                    <input id="empSubmitBtn1518" type="button" value="submit">
+                    <!-- <button id="empSubmitBtn1518">CLick</button> -->
+                </div>
+        </div>
+        <div class="empThankyouModal1518 flexbox">
+            <div class="empThankyouModalBody1518">
+                <span>x</span>
+                <h2>Thank you!</h2>
+            </div>
         </div>
     </div>
     
