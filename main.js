@@ -102,12 +102,17 @@ submitForm = () =>{
 resetForm = () =>{
     textInputs.forEach(element =>{
         element.value=""
+        element.parentElement.nextElementSibling.innerHTML =""
     })
     textlabels.forEach(element =>{
         element.classList.remove('empLabelFocused1518')
     })
     textArea.value=''
     tandcCheckbox.checked=false;
+    tandcCheckbox.parentElement.parentElement.nextElementSibling.innerHTML="";
+    document.getElementById('married').checked=true;
+    document.getElementById('male').checked=true;
+    document.getElementsByClassName('empSpouseName1518')[0].classList.toggle('disableSpouseInput');
 }
 
 toggleTooltip = () =>{
