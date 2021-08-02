@@ -135,6 +135,7 @@ toggleTooltip = () =>{
 }
 radioBtnCheck = (event, element) =>{
     event, element.parentNode.childNodes[1].childNodes[1].checked=true
+    toggleSpouseNameField()
 }
 
 
