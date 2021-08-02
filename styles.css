@@ -257,6 +257,7 @@ body{
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease;
+    cursor: pointer;
 }
 
 .empBody1518 .empThankyouModal1518 .empThankyouModalBody1518{
