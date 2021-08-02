@@ -219,11 +219,10 @@ body{
     justify-content: center;
     align-items: center;
 }
-.empBody1518 .empFormWrapper1518 .empTandC1518 label a{
-    color: var(--link);
-}
 .empBody1518 .empFormWrapper1518 .empTandC1518 label span{
-    color: var(--error);
+    color: var(--link);
+    cursor:not-allowed;
+    text-decoration: underline;
 }
 .empBody1518 .empFormWrapper1518 .empButtons1518{
     align-items: center;
