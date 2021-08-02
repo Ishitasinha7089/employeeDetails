@@ -246,7 +246,7 @@ body{
     background-color: var(--buttonHover);
 }
 
-.empBody1518 .empThankyouModal1518{
+.empBody1518 .empModal1518{
     position: fixed;
     top:0;
     left:0;
@@ -262,7 +262,7 @@ body{
     cursor: pointer;
 }
 
-.empBody1518 .empThankyouModal1518 .empThankyouModalBody1518{
+.empBody1518 .empModal1518 .empModalBody1518{
     height: fit-content;
     position: relative;
     width: 320px;
@@ -273,7 +273,7 @@ body{
     
 }
 
-.empBody1518 .empThankyouModal1518 .empThankyouModalBody1518 span{
+.empBody1518 .empModal1518 .empModalBody1518 span{
     right: 8px;
     position: absolute;
     top:0;
@@ -283,10 +283,10 @@ body{
     cursor: pointer;
     
 }
-.empBody1518 .empThankyouModal1518 .empThankyouModalBody1518 span:hover{
+.empBody1518 .empModal1518 .empModalBody1518 span:hover{
     color: var(--secondary);
 }
-.empBody1518 .empThankyouModal1518.empThankyouModalOpen1518{
+.empBody1518 .empModal1518.empModalOpen1518{
     opacity: 1;
     visibility: visible;
 }

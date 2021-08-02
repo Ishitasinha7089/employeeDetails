@@ -6,6 +6,8 @@ const radioBtns = document.querySelectorAll('.empRadioWrapper1519 label');
 const radioBtnsLength = radioBtns.length;
 const unMarriedradio = document.getElementById('unmarried');
 const marriedRadio = document.getElementById('married');
+const modals = document.getElementsByClassName('empModal1518')
+const modalsLength = modals.length
 
 changeTheme = (e) =>{
     let logo = document.querySelector('.empHeader1518 .logo1518');
@@ -42,20 +44,6 @@ textInputs.forEach(element => {
      element.addEventListener('keyup', (event) =>showError(event.target));
 });
 
-showError = (event) =>{
-    const value = event.value;
-    const inputLabel = event.nextElementSibling.innerText.replace('*','');
-    if(value==='' || value.trim().length===0){
-        // console.log(value, inputLabel, event.parentElement.nextElementSibling.innerHTML);
-        event.parentElement.nextElementSibling.innerHTML= "Please provide your "+ inputLabel.toLowerCase();
-
-    }
-     else{
-        event.parentElement.nextElementSibling.innerHTML="";
-     }
-}
-
-
 textArea.addEventListener('focus',() =>{
     textArea.nextElementSibling.classList.add('empLabelFocused1518');
 })
@@ -70,14 +58,34 @@ for (let index = 0; index < radioBtnsLength; index++) {
     const element = radioBtns[index];
     element.addEventListener('click', () =>radioBtnCheck(element));
 }
-
-
-
-
-toggleModal = () =>{
-    document.getElementsByClassName('empThankyouModal1518')[0].classList.toggle('empThankyouModalOpen1518');
-    resetForm();
+for (let index = 0; index < modalsLength; index++) {
+    const element = modals[index];
+    element.addEventListener('click', (event) =>closeModal(event.target));
 }
+
+showError = (event) =>{
+    const value = event.value;
+    const inputLabel = event.nextElementSibling.innerText.replace('*','');
+    if(value==='' || value.trim().length===0){
+        // console.log(value, inputLabel, event.parentElement.nextElementSibling.innerHTML);
+        event.parentElement.nextElementSibling.innerHTML= "Please provide your "+ inputLabel.toLowerCase();
+
+    }
+     else{
+        event.parentElement.nextElementSibling.innerHTML="";
+     }
+}
+
+
+
+
+openModal = (e) =>{
+    e.classList.add('empModalOpen1518')
+}
+closeModal = (e) =>{
+    e.classList.remove('empModalOpen1518')
+}
+
 
 
 toggleSpouseNameField = () =>{
@@ -121,7 +129,8 @@ submitForm = () =>{
     
     tandcCheckbox.parentElement.parentElement.nextElementSibling.innerHTML="";
     if(noErrors){
-        toggleModal();
+        openModal(modals[0]);
+        resetForm()
     }
     
 }
@@ -140,6 +149,7 @@ resetForm = () =>{
     document.getElementById('married').checked=true;
     document.getElementById('male').checked=true;
     document.getElementsByClassName('empSpouseName1518')[0].classList.remove('disableSpouseInput');
+
 }
 
 toggleTooltip = () =>{
@@ -150,14 +160,22 @@ radioBtnCheck = (element) =>{
     toggleSpouseNameField()
 }
 
+showResetFormModal = async () =>{
+    resetForm()
+    openModal(modals[1])
+    setTimeout(() => {
+        closeModal(modals[1])
+    }, 2000);
+    
+}
+
 
 
 
 marriedRadio.addEventListener('click', toggleSpouseNameField)
 unMarriedradio.addEventListener('click', toggleSpouseNameField)
 document.getElementById('empSubmitBtn1518').addEventListener('click', submitForm)
-document.getElementById('empResetBtn1518').addEventListener('click', resetForm)
+document.getElementById('empResetBtn1518').addEventListener('click', () => showResetFormModal(closeModal))
 document.getElementsByClassName('empSpouseNameDiv1518')[0].addEventListener('mouseover',toggleTooltip)
 document.getElementsByClassName('empSpouseNameDiv1518')[0].addEventListener('mouseleave',toggleTooltip)
 document.getElementsByClassName('icon1518')[0].addEventListener('click', (event) =>{changeTheme(event.target)})
-document.querySelector('.empThankyouModal1518').addEventListener('click', toggleModal)
