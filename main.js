@@ -69,6 +69,7 @@ changeTheme = (e) =>{
 }
 toggleModal = () =>{
     document.getElementsByClassName('empThankyouModal1518')[0].classList.toggle('empThankyouModalOpen1518');
+    resetForm();
 }
 
 
@@ -76,7 +77,7 @@ toggleSpouseNameField = () =>{
     const element = document.getElementsByClassName('empSpouseName1518')[0];
     element.classList.toggle('disableSpouseInput');
     if(element.classList.contains('disableSpouseInput')){
-        element.parentElement.nextElementSibling.classList.remove('empShowError1518');
+        element.parentElement.nextElementSibling.innerHTML="";
         element.value='';
         element.nextElementSibling.classList.remove('empLabelFocused1518');
         // element.disabled=true;
@@ -126,7 +127,7 @@ resetForm = () =>{
     tandcCheckbox.parentElement.parentElement.nextElementSibling.innerHTML="";
     document.getElementById('married').checked=true;
     document.getElementById('male').checked=true;
-    document.getElementsByClassName('empSpouseName1518')[0].classList.toggle('disableSpouseInput');
+    document.getElementsByClassName('empSpouseName1518')[0].classList.remove('disableSpouseInput');
 }
 
 toggleTooltip = () =>{
@@ -146,4 +147,4 @@ document.getElementById('empResetBtn1518').addEventListener('click', resetForm)
 document.getElementsByClassName('empSpouseName1518')[0].addEventListener('mouseover',toggleTooltip)
 document.getElementsByClassName('empSpouseName1518')[0].addEventListener('mouseleave',toggleTooltip)
 document.getElementsByClassName('icon1518')[0].addEventListener('click', (event) =>{changeTheme(event)})
-document.querySelector('.empThankyouModalBody1518 span').addEventListener('click', toggleModal)
+document.querySelector('.empThankyouModal1518').addEventListener('click', toggleModal)
