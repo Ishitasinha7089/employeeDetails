@@ -101,8 +101,8 @@ submitForm = () =>{
                 textInputs[2].parentElement.nextElementSibling.innerHTML=""
             }
         }
-        else if(!/^[a-zA-Z]+$/.test(element.value)){
-            element.parentElement.nextElementSibling.innerHTML = 'Please use only alphabets';
+        else if(!/^[a-zA-Z\s]*$/.test(element.value)){
+            element.parentElement.nextElementSibling.innerHTML = 'Please use only alphabets and';
             noErrors=false;
         }
     }
