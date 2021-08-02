@@ -121,6 +121,9 @@ body{
     font-size: 16px;
     background-color: var(--primary);
 }
+.empBody1518 .empFormWrapper1518 textarea{
+    resize: none;
+}
 .empBody1518 .empFormWrapper1518 input:focus,
 .empBody1518 .empFormWrapper1518 textarea:focus{
     outline: none;

@@ -7,6 +7,26 @@ const radioBtnsLength = radioBtns.length;
 const unMarriedradio = document.getElementById('unmarried');
 const marriedRadio = document.getElementById('married');
 
+changeTheme = (e) =>{
+    let logo = document.querySelector('.empHeader1518 .logo1518');
+    console.log(e.src);
+    if(e.src.includes('sun')){
+        e.src = 'assets/moon.svg';
+        logo.src = 'assets/groww-light.png';
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('dark', true)
+        return;
+    }
+    e.src='assets/sun.svg';
+    logo.src = 'assets/groww-dark.png';
+    localStorage.setItem('dark', false)
+    document.documentElement.removeAttribute('data-theme');
+}
+
+if(localStorage.getItem('dark')==='true'){
+    changeTheme(document.getElementsByClassName('icon1518')[0])
+}
+
 
 textInputs.forEach(element => {
     element.addEventListener('focus', () =>{
@@ -54,19 +74,6 @@ for (let index = 0; index < radioBtnsLength; index++) {
 
 
 
-
-changeTheme = (e) =>{
-    let logo = document.querySelector('.empHeader1518 .logo1518');
-    if(e.srcElement.src.includes('sun')){
-        e.srcElement.src = 'assets/moon.svg';
-        logo.src = 'assets/groww-light.png';
-        document.documentElement.setAttribute('data-theme', 'dark');
-        return;
-    }
-    e.srcElement.src='assets/sun.svg';
-    logo.src = 'assets/groww-dark.png';
-    document.documentElement.removeAttribute('data-theme');
-}
 toggleModal = () =>{
     document.getElementsByClassName('empThankyouModal1518')[0].classList.toggle('empThankyouModalOpen1518');
     resetForm();
@@ -102,7 +109,7 @@ submitForm = () =>{
             }
         }
         else if(!/^[a-zA-Z\s]*$/.test(element.value)){
-            element.parentElement.nextElementSibling.innerHTML = 'Please use only alphabets and';
+            element.parentElement.nextElementSibling.innerHTML = 'Please use only alphabets';
             noErrors=false;
         }
     }
@@ -151,5 +158,5 @@ document.getElementById('empSubmitBtn1518').addEventListener('click', submitForm
 document.getElementById('empResetBtn1518').addEventListener('click', resetForm)
 document.getElementsByClassName('empSpouseNameDiv1518')[0].addEventListener('mouseover',toggleTooltip)
 document.getElementsByClassName('empSpouseNameDiv1518')[0].addEventListener('mouseleave',toggleTooltip)
-document.getElementsByClassName('icon1518')[0].addEventListener('click', (event) =>{changeTheme(event)})
+document.getElementsByClassName('icon1518')[0].addEventListener('click', (event) =>{changeTheme(event.target)})
 document.querySelector('.empThankyouModal1518').addEventListener('click', toggleModal)
