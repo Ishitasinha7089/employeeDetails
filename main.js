@@ -95,11 +95,12 @@ submitForm = () =>{
     for(let cur = 0; cur<textInputsLength; cur++){
         const element = textInputs[cur];
         if(element.value==='' || element.value.trim().length==0){
-            if(!unMarriedradio.checked){
-                showError(element);
-                noErrors = false;
+            showError(element);
+            noErrors = false;
+            if(unMarriedradio.checked){
+                textInputs[2].parentElement.nextElementSibling.innerHTML=""
             }
-        } 
+        }
         else if(!/^[a-zA-Z]+$/.test(element.value)){
             element.parentElement.nextElementSibling.innerHTML = 'Please use only alphabets';
             noErrors=false;
