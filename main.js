@@ -11,7 +11,6 @@ const modalsLength = modals.length
 
 changeTheme = (e) =>{
     let logo = document.querySelector('.empHeader1518 .logo1518');
-    console.log(e.src);
     if(e.src.includes('sun')){
         e.src = 'assets/moon.svg';
         logo.src = 'assets/groww-light.png';
@@ -152,8 +151,11 @@ resetForm = () =>{
 
 }
 
-toggleTooltip = () =>{
-    document.getElementsByClassName('empTooltip1518')[0].classList.toggle('empShowTooltip1518')
+showTooltip = () =>{
+    document.getElementsByClassName('empTooltip1518')[0].classList.add('empShowTooltip1518')
+}
+hideTooltip = () =>{
+    document.getElementsByClassName('empTooltip1518')[0].classList.remove('empShowTooltip1518')
 }
 radioBtnCheck = (element) =>{
     element.parentNode.childNodes[1].childNodes[1].checked=true
@@ -176,6 +178,6 @@ marriedRadio.addEventListener('click', toggleSpouseNameField)
 unMarriedradio.addEventListener('click', toggleSpouseNameField)
 document.getElementById('empSubmitBtn1518').addEventListener('click', submitForm)
 document.getElementById('empResetBtn1518').addEventListener('click', () => showResetFormModal(closeModal))
-document.getElementsByClassName('empSpouseNameDiv1518')[0].addEventListener('mouseover',toggleTooltip)
-document.getElementsByClassName('empSpouseNameDiv1518')[0].addEventListener('mouseleave',toggleTooltip)
+document.getElementsByClassName('empSpouseNameDiv1518')[0].addEventListener('mouseover',showTooltip)
+document.getElementsByClassName('empSpouseNameDiv1518')[0].addEventListener('mouseleave',hideTooltip)
 document.getElementsByClassName('icon1518')[0].addEventListener('click', (event) =>{changeTheme(event.target)})
