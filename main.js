@@ -46,7 +46,7 @@ showError = (event) =>{
     const value = event.value;
     const inputLabel = event.nextElementSibling.innerText.replace('*','');
     if(value==='' || value.trim().length===0){
-        console.log(value, inputLabel, event.parentElement.nextElementSibling.innerHTML);
+        // console.log(value, inputLabel, event.parentElement.nextElementSibling.innerHTML);
         event.parentElement.nextElementSibling.innerHTML= "Please provide your "+ inputLabel.toLowerCase();
 
     }
@@ -96,7 +96,7 @@ toggleSpouseNameField = () =>{
 
 submitForm = () =>{
     let noErrors =true;
-    console.log('entered in form');
+    // console.log('entered in form');
     
     const textInputsLength = textInputs.length;
     for(let cur = 0; cur<textInputsLength; cur++){
@@ -106,6 +106,7 @@ submitForm = () =>{
             noErrors = false;
             if(unMarriedradio.checked){
                 textInputs[2].parentElement.nextElementSibling.innerHTML=""
+                noErrors=true
             }
         }
         else if(!/^[a-zA-Z\s]*$/.test(element.value)){
