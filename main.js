@@ -1,62 +1,74 @@
-const textInputs = document.querySelectorAll('.empInputs1518 input[type="text"]')
-const textlabels = document.querySelectorAll('.empInputs1518 label')
+const textInputs = document.querySelectorAll('.empInputs1518 input[type="text"]');
+const textlabels = document.querySelectorAll('.empInputs1518 label');
+const textArea = document.getElementById('empOtherDetails1518');
+const tandcCheckbox = document.getElementById('empTandC1518');
+const radioBtns = document.querySelectorAll('.empRadioWrapper1519 label');
+const radioBtnsLength = radioBtns.length;
+const unMarriedradio = document.getElementById('unmarried');
+const marriedRadio = document.getElementById('married');
+
+
 textInputs.forEach(element => {
     element.addEventListener('focus', () =>{
-        element.nextElementSibling.classList.add('empLabelFocused1518')
+        element.nextElementSibling.classList.add('empLabelFocused1518');
     })
 
     element.addEventListener('blur', (event) =>{
         if(event.target.value===''){
-            element.nextElementSibling.classList.remove('empLabelFocused1518')
+            element.nextElementSibling.classList.remove('empLabelFocused1518');
             return;
         }
     })
-     element.addEventListener('keyup', (event) =>showError(event.srcElement));
+     element.addEventListener('keyup', (event) =>showError(event.target));
 });
 
 showError = (event) =>{
     const value = event.value;
-    const inputLabel = event.nextElementSibling.innerHTML
+    const inputLabel = event.nextElementSibling.innerText.replace('*','');
     if(value==='' || value.trim().length===0){
         console.log(value, inputLabel, event.parentElement.nextElementSibling.innerHTML);
-        event.parentElement.nextElementSibling.innerHTML= "Please provide your "+ inputLabel.toLowerCase()
+        event.parentElement.nextElementSibling.innerHTML= "Please provide your "+ inputLabel.toLowerCase();
 
     }
      else{
-        event.parentElement.nextElementSibling.innerHTML=""
+        event.parentElement.nextElementSibling.innerHTML="";
      }
 }
 
-const textArea = document.getElementById('empOtherDetails1518')
-const tandcCheckbox = document.getElementById('empTandC1518');
+
 textArea.addEventListener('focus',() =>{
-    textArea.nextElementSibling.classList.add('empLabelFocused1518')
+    textArea.nextElementSibling.classList.add('empLabelFocused1518');
 })
 textArea.addEventListener('blur',(event) =>{
     if(event.target.value===''){
-        textArea.nextElementSibling.classList.remove('empLabelFocused1518')
+        textArea.nextElementSibling.classList.remove('empLabelFocused1518');
         return;
     }
 })
+
+for (let index = 0; index < radioBtnsLength; index++) {
+    const element = radioBtns[index];
+    element.addEventListener('click', (event) => radioBtnCheck(event, element));
+}
 
 
 
 
 
 changeTheme = (e) =>{
-    var logo = document.querySelector('.empHeader1518 .logo1518')
+    let logo = document.querySelector('.empHeader1518 .logo1518');
     if(e.srcElement.src.includes('sun')){
-        e.srcElement.src = 'assets/moon.svg'
-        logo.src = 'assets/groww-light.png'
-        document.documentElement.setAttribute('data-theme', 'dark')
+        e.srcElement.src = 'assets/moon.svg';
+        logo.src = 'assets/groww-light.png';
+        document.documentElement.setAttribute('data-theme', 'dark');
         return;
     }
-    e.srcElement.src='assets/sun.svg'
-    logo.src = 'assets/groww-dark.png'
-    document.documentElement.removeAttribute('data-theme')
+    e.srcElement.src='assets/sun.svg';
+    logo.src = 'assets/groww-dark.png';
+    document.documentElement.removeAttribute('data-theme');
 }
 toggleModal = () =>{
-    document.getElementsByClassName('empThankyouModal1518')[0].classList.toggle('empThankyouModalOpen1518')
+    document.getElementsByClassName('empThankyouModal1518')[0].classList.toggle('empThankyouModalOpen1518');
 }
 
 
@@ -79,8 +91,10 @@ submitForm = () =>{
     for(let cur = 0; cur<textInputsLength; cur++){
         const element = textInputs[cur];
         if(element.value==='' || element.value.trim().length==0){
-            showError(element);
-            noErrors=false;
+            if(!unMarriedradio.checked){
+                showError(element);
+                noErrors = false;
+            }
         } 
         else if(!/^[a-zA-Z]+$/.test(element.value)){
             element.parentElement.nextElementSibling.innerHTML = 'Please use only alphabets';
@@ -88,7 +102,7 @@ submitForm = () =>{
         }
     }
     if(!tandcCheckbox.checked){
-        tandcCheckbox.parentElement.parentElement.nextElementSibling.innerHTML="Please check this";
+        tandcCheckbox.parentElement.parentElement.nextElementSibling.innerHTML="Please check this box";
         return;
     } 
     
@@ -118,12 +132,15 @@ resetForm = () =>{
 toggleTooltip = () =>{
     document.getElementsByClassName('empTooltip1518')[0].classList.toggle('empShowTooltip1518')
 }
+radioBtnCheck = (event, element) =>{
+    event, element.parentNode.childNodes[1].childNodes[1].checked=true
+}
 
 
 
 
-document.getElementById('married').addEventListener('click', toggleSpouseNameField)
-document.getElementById('unmarried').addEventListener('click', toggleSpouseNameField)
+marriedRadio.addEventListener('click', toggleSpouseNameField)
+unMarriedradio.addEventListener('click', toggleSpouseNameField)
 document.getElementById('empSubmitBtn1518').addEventListener('click', submitForm)
 document.getElementById('empResetBtn1518').addEventListener('click', resetForm)
 document.getElementsByClassName('empSpouseName1518')[0].addEventListener('mouseover',toggleTooltip)

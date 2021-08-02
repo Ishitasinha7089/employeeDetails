@@ -21,18 +21,18 @@
         <div class="empFormWrapper1518 flexbox">
                 <div class="empInputs1518 flexbox">
                     <input type="text" autofocus> 
-                    <label class="empLabelFocused1518">First name</label>
+                    <label class="empLabelFocused1518">First name <span>*</span></label>
                 </div>
                 <p class="empError1518"></p>
                 <div class="empInputs1518 flexbox">
                     <input type="text">
-                    <label>Last name</label> 
+                    <label>Last name <span>*</span></label> 
                 </div>
                 <p class="empError1518"></p>
 
 
                 <div class="empRadioBtns1518 flexbox">
-                    <label>Gender:</label>
+                    <label>Gender <span>*</span> :</label>
 
                     <div class="empRadioWrapper1519 flexbox">
                         <div class="empRadio1519 flexbox">
@@ -44,14 +44,14 @@
                     
                     <div class="empRadioWrapper1519 flexbox">
                         <div class="empRadio1519 flexbox">
-                            <input type="radio" name="gender">
+                            <input type="radio" name="gender" id="female">
                             <span></span>
                         </div>
                         <label>Female</label>
                     </div>
                     <div class="empRadioWrapper1519 flexbox">
                         <div class="empRadio1519 flexbox">
-                            <input type="radio" name="gender">
+                            <input type="radio" name="gender" id="others">
                             <span></span>
                         </div>
                         <label>Others</label>
@@ -59,7 +59,7 @@
                 </div>
                 
                 <div class="empRadioBtns1518 flexbox">
-                    <label>Marital status:</label>
+                    <label>Marital status <span>*</span> :</label>
                     <div class="empRadioWrapper1519 flexbox">
                         <div class="empRadio1519 flexbox">
                             <input type="radio" id="married" name="maritalStatus" checked>
@@ -78,12 +78,13 @@
 
                 <div class="empInputs1518 flexbox">
                     <input class="empSpouseName1518" type="text">
-                    <label>Spouse name</label>
+                    <label>Spouse name <span>*</span></label>
+                    <div class="empTooltip1518 flexbox">
+                        <span>Only for married employees</span>
+                    </div>
                 </div>
                 <p class="empError1518"></p>
-                <div class="empTooltip1518 flexbox">
-                    <span>Only for married employees</span>
-                </div>
+                
                 <div class="empInputs1518 flexbox">
                     <textarea id="empOtherDetails1518" cols="30" rows="4"></textarea>
                     <label>Other details</label>
@@ -93,7 +94,7 @@
                         <input type="checkbox" id="empTandC1518">
                         <span class="flexbox">&#10003;</span>
                     </div>
-                    <label>I accept <a href="">Terms and conditions</a></label>
+                    <label>I accept <a href="">Terms and conditions </a><span>*</span></label>
                 </div>
                 <p class="empError1518"></p>
                 <div class="empButtons1518 flexbox">

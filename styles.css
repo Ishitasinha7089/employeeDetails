@@ -12,11 +12,11 @@ html{
     --shadow:#eee;
     --border: #555555;
     --link:#5367FF;
-    --button:#0abb92;
-    --buttonHover:#1dcca3;
-    --error: #EB5B3C;;
     --disabled:#d6d6d6;
     --modalBack:rgba(187, 187, 187, 0.7);
+    --error: #EB5B3C;
+    --button:#0abb92;
+    --buttonHover:#1dcca3;
 }
 
 
@@ -61,6 +61,7 @@ body{
 }
 .empHeader1518 .icon1518{
     height: 20px;
+    cursor: pointer;
 }
 .empBody1518{
     align-items: center;
@@ -97,6 +98,9 @@ body{
     margin: 10px 10px 0 10px;
     color: var(--border);
     pointer-events:none;
+}
+.empBody1518 .empFormWrapper1518 .empInputs1518 label span{
+    color: var(--error);
 }
 .empBody1518 .empFormWrapper1518 .empInputs1518 label.empLabelFocused1518{
     margin-top: -10px;
@@ -139,10 +143,14 @@ body{
 }
 .empBody1518 .empFormWrapper1518 .empRadioBtns1518 .empRadioWrapper1519 label{
     margin-left: 12px;
+    cursor: pointer;
+}
+.empBody1518 .empFormWrapper1518 .empRadioBtns1518 label span{
+    color: var(--error);
 }
 .empBody1518 .empFormWrapper1518 .empRadioBtns1518 .empRadio1519{
     position: relative;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: fit-content;
 }
@@ -158,8 +166,8 @@ body{
     width: 16px;
     height: 16px;
     cursor: pointer;
-    position: absolute;
     top:0;
+    position: absolute;
     left: 0;
     z-index: 2;
     background: var(--primary);
@@ -209,13 +217,16 @@ body{
     color: var(--primary);
 }
 .empBody1518 .empFormWrapper1518 .empTandC1518 .empCheckbox1518 input[type="checkbox"]:checked ~ span{
-    background-color: #0abb92;
+    background-color: var(--button);
     border:none;
     justify-content: center;
     align-items: center;
 }
 .empBody1518 .empFormWrapper1518 .empTandC1518 label a{
     color: var(--link);
+}
+.empBody1518 .empFormWrapper1518 .empTandC1518 label span{
+    color: var(--error);
 }
 .empBody1518 .empFormWrapper1518 .empButtons1518{
     align-items: center;
@@ -283,8 +294,8 @@ body{
 .empBody1518 .empFormWrapper1518 .empTooltip1518{
     padding: 4px;
     opacity: 0;
-    margin-top:348px;
-    margin-left: 300px;
+    margin-top:52px;
+    align-self: flex-end;
     transition: opacity 0.3s ease;
     border-radius: 4px;
     position: absolute;
