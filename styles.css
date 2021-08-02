@@ -15,8 +15,9 @@ html{
     --disabled:#d6d6d6;
     --modalBack:rgba(187, 187, 187, 0.7);
     --error: #EB5B3C;
-    --button:#0abb92;
-    --buttonHover:#1dcca3;
+    --button:#1dcca3;
+    --buttonHover:#0abb92;
+    --buttonResetBack:#f5f5f5;
 }
 
 
@@ -29,6 +30,7 @@ html[data-theme='dark'] {
     --disabled:#3d3d3d;
     --modalBack:rgba(51, 51, 51,0.6);
     --error: #D55438;
+    --buttonResetBack: #353535;
 }
 
 
@@ -91,7 +93,7 @@ body{
     transition: margin 0.3s ease;
     cursor: text;
     padding: 0 8px;
-    margin: 10px 10px 0 10px;
+    margin: 10px 10px 0 8px;
     color: var(--border);
     pointer-events:none;
 }
@@ -236,13 +238,22 @@ body{
     border: none;
     background-color: var(--button);
     margin: 20px;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
     border-radius: 5px;
+    font-weight: 600;
     cursor: pointer;
 } 
-.empBody1518 .empFormWrapper1518 .empButtons1518 input[type='button']:hover{
+.empBody1518 .empFormWrapper1518 .empButtons1518 input[value='reset']{
+    background-color: var(--primary);
+    border: 1px solid var(--border);
+    color: var(--button);
+}
+.empBody1518 .empFormWrapper1518 .empButtons1518 input[value='reset']:hover{
+    background-color: var(--buttonResetBack);
+}
+.empBody1518 .empFormWrapper1518 .empButtons1518 input[value='submit']:hover{
     background-color: var(--buttonHover);
 }
 
