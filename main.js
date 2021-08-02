@@ -48,7 +48,7 @@ textArea.addEventListener('blur',(event) =>{
 
 for (let index = 0; index < radioBtnsLength; index++) {
     const element = radioBtns[index];
-    element.addEventListener('click', (event) => radioBtnCheck(event, element));
+    element.addEventListener('click', () =>radioBtnCheck(element));
 }
 
 
@@ -75,12 +75,15 @@ toggleModal = () =>{
 
 toggleSpouseNameField = () =>{
     const element = document.getElementsByClassName('empSpouseName1518')[0];
-    element.classList.toggle('disableSpouseInput');
-    if(element.classList.contains('disableSpouseInput')){
+    if(unMarriedradio.checked){
+        element.classList.add('disableSpouseInput');
         element.parentElement.nextElementSibling.innerHTML="";
         element.value='';
         element.nextElementSibling.classList.remove('empLabelFocused1518');
-        // element.disabled=true;
+        element.disabled=true;
+    } else{
+        element.classList.remove('disableSpouseInput');
+        element.disabled=false;
     }
 }
 
@@ -133,8 +136,8 @@ resetForm = () =>{
 toggleTooltip = () =>{
     document.getElementsByClassName('empTooltip1518')[0].classList.toggle('empShowTooltip1518')
 }
-radioBtnCheck = (event, element) =>{
-    event, element.parentNode.childNodes[1].childNodes[1].checked=true
+radioBtnCheck = (element) =>{
+    element.parentNode.childNodes[1].childNodes[1].checked=true
     toggleSpouseNameField()
 }
 
@@ -145,7 +148,7 @@ marriedRadio.addEventListener('click', toggleSpouseNameField)
 unMarriedradio.addEventListener('click', toggleSpouseNameField)
 document.getElementById('empSubmitBtn1518').addEventListener('click', submitForm)
 document.getElementById('empResetBtn1518').addEventListener('click', resetForm)
-document.getElementsByClassName('empSpouseName1518')[0].addEventListener('mouseover',toggleTooltip)
-document.getElementsByClassName('empSpouseName1518')[0].addEventListener('mouseleave',toggleTooltip)
+document.getElementsByClassName('empSpouseNameDiv1518')[0].addEventListener('mouseover',toggleTooltip)
+document.getElementsByClassName('empSpouseNameDiv1518')[0].addEventListener('mouseleave',toggleTooltip)
 document.getElementsByClassName('icon1518')[0].addEventListener('click', (event) =>{changeTheme(event)})
 document.querySelector('.empThankyouModal1518').addEventListener('click', toggleModal)
